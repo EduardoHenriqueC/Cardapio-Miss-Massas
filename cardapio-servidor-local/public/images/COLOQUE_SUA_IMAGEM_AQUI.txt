@@ -1,0 +1,5 @@
+Coloque aqui o arquivo da imagem de fundo, nomeado "fundo.jpg"
+(ou ajuste o nome no topo do arquivo public/index.html, na linha BACKGROUND_IMAGE).
+
+Formatos recomendados: JPG ou PNG.
+Evite arquivos .HEIC (padrao do iPhone) - TVs e muitos navegadores nao conseguem exibi-los.

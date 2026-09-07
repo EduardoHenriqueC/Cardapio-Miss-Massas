@@ -1,0 +1,59 @@
+{
+  "title": "Cardápio do Dia",
+  "subtitle": "",
+  "categories": [
+    {
+      "id": "c1",
+      "name": "Carnes",
+      "items": [
+        {
+          "id": "i1",
+          "name": "Carne de Panela",
+          "available": false
+        },
+        {
+          "id": "i2",
+          "name": "Frango ao Molho",
+          "available": true
+        },
+        {
+          "id": "i3",
+          "name": "Feijoada",
+          "available": true
+        },
+        {
+          "id": "i4",
+          "name": "Costelinha de Porco",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "name": "Guarnições",
+      "items": [
+        {
+          "id": "i5",
+          "name": "Abóbora Cabotiá",
+          "available": true
+        },
+        {
+          "id": "i6",
+          "name": "Milho Verde Refogado",
+          "available": true
+        },
+        {
+          "id": "i7",
+          "name": "Mandioca Salteada",
+          "available": true
+        },
+        {
+          "id": "i8",
+          "name": "Macarrão ao Molho Vermelho",
+          "available": true
+        }
+      ]
+    }
+  ],
+  "updatedAt": 1784944247139
+}

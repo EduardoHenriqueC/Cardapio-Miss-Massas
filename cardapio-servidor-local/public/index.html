@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1B140F">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Cardápio Dinâmico</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg: #1B140F;
+  --panel: #251C15;
+  --line: #4A3A28;
+  --cream: #F3EAD8;
+  --amber: #E3A02F;
+  --ember: #C1442D;
+  --smoke: #6B5A45;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html, body{ height:100%; }
+body{
+  font-family:'Work Sans', sans-serif;
+  background: radial-gradient(ellipse at top, #2A2015 0%, var(--bg) 60%);
+  color: var(--cream);
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+}
+
+.bg-image{
+  position:fixed; inset:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+  z-index:0;
+  border:none;
+  opacity: .100;
+}
+.bg-overlay{
+  position:fixed; inset:0;
+  background: rgba(10,8,6,.78);
+  z-index:0;
+}
+.group-divider{ font-family:'Anton', sans-serif; font-size: clamp(32px, 5vw, 62px); color: #fff; padding: 10px 0; }
+.board-group{ margin-bottom: 8px; }
+.content-layer{ position:relative; z-index:1; }
+
+.smoke-layer{position:absolute; top:0; left:0; width:100%; height:220px; overflow:hidden; pointer-events:none; opacity:.35;}
+.smoke-layer svg{position:absolute; width:140%; left:-20%; animation: drift 22s ease-in-out infinite alternate;}
+@keyframes drift{ from{ transform: translateX(-2%) translateY(0);} to{ transform: translateX(2%) translateY(-8px);} }
+@media (prefers-reduced-motion: reduce){ .smoke-layer svg{animation:none;} }
+
+.board-header{ position:relative; text-align:center; padding: 56px 24px 22px; }
+.board-title{
+  font-family:'Anton', sans-serif;
+  font-size: clamp(56px, 9vw, 130px);
+  letter-spacing: 1px;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0,0,0,.4);
+}
+.board-sub{ font-size: clamp(16px, 1.6vw, 26px); color: var(--smoke); margin-top: 12px; }
+.updated-tag{ text-align:center; font-size: clamp(12px, 1vw, 16px); color: var(--smoke); padding-bottom: 12px; }
+
+.board-body{ max-width: 1400px; margin: 0 auto; padding: 14px clamp(20px, 4vw, 60px) 50px; text-align:center; }
+.board-group{ margin-bottom: 12px; }
+.board-group .item-list li{
+  font-family:'Anton', sans-serif;
+  font-size: clamp(32px, 5vw, 62px);
+  color: #fff;
+  text-transform: uppercase;
+  padding: 2px 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+.item-list{ list-style:none; }
+.group-divider{ font-family:'Anton', sans-serif; font-size: clamp(32px, 5vw, 62px); color: #fff; padding: 18px 0; }
+.empty-note{ color: var(--smoke); font-style: italic; font-size: 15px; padding: 8px 0; }
+.empty-board{ text-align:center; padding: 80px 24px; color: var(--smoke); font-size: 18px; }
+
+.gear-link{
+  position:fixed; bottom:14px; left:14px;
+  width:34px; height:34px; padding:0; border-radius:50%;
+  background: rgba(0,0,0,.25); border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  color: var(--smoke); text-decoration:none; font-size:16px;
+  opacity:.5;
+}
+.gear-link:hover{ opacity:1; }
+
+.zoom-controls{
+  position:fixed; bottom:14px; right:14px;
+  display:flex; gap:8px;
+}
+.zoom-btn{
+  width:44px; height:44px; padding:0; border-radius:50%;
+  background: rgba(0,0,0,.35); border:1px solid var(--line);
+  color: var(--cream); font-size:20px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+  opacity:.6;
+}
+.zoom-btn:hover, .zoom-btn:focus{ opacity:1; }
+#zoomWrap{ transition: zoom .15s ease; }
+
+.admin-wrap{ max-width: 720px; margin: 0 auto; padding: 28px 18px 80px; }
+.admin-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; gap:12px; flex-wrap:wrap;}
+.admin-title{ font-family:'Anton', sans-serif; font-size:28px; color:var(--amber); text-transform:uppercase;}
+.view-link{ font-size:13px; color:var(--cream); background:var(--panel); border:1px solid var(--line); padding:8px 14px; border-radius:6px; text-decoration:none; }
+
+.field-row{ display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;}
+input[type=text], input[type=password]{
+  background: var(--panel); border:1px solid var(--line); color:var(--cream);
+  padding:10px 12px; border-radius:6px; font-size:15px; font-family:inherit;
+  flex:1; min-width:120px;
+}
+input::placeholder{ color: var(--smoke); }
+button{
+  font-family:'Work Sans', sans-serif; font-weight:600; font-size:14px;
+  border:none; border-radius:6px; padding:10px 16px; cursor:pointer;
+}
+.btn-amber{ background: var(--amber); color:#1B140F; }
+.btn-ghost{ background:transparent; border:1px solid var(--line); color:var(--cream); }
+.btn-danger{ background:transparent; border:1px solid var(--ember); color:var(--ember); font-size:12px; padding:6px 10px;}
+
+.admin-category{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:18px 20px; margin-bottom:18px; }
+.admin-cat-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;}
+.admin-cat-head h3{ font-family:'Anton'; font-size:20px; color:var(--amber); text-transform:uppercase; letter-spacing:.5px;}
+.admin-item{ display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px dashed var(--line); }
+.admin-item:last-child{ border-bottom:none; }
+.admin-item span{ flex:1; font-size:16px; }
+.toggle{
+  width:46px; height:26px; border-radius:13px; background:var(--line);
+  position:relative; cursor:pointer; border:none; flex-shrink:0;
+}
+.toggle.on{ background:#3E7A47; }
+.toggle::after{
+  content:''; position:absolute; top:3px; left:3px; width:20px; height:20px;
+  border-radius:50%; background:var(--cream); transition: left .15s ease;
+}
+.toggle.on::after{ left:23px; }
+.sold-label{ font-size:11px; color:var(--smoke); width:56px; }
+.sold-label.on{ color:#3E7A47; }
+
+.pin-screen{ max-width:320px; margin: 18vh auto; text-align:center; padding: 0 20px;}
+.pin-screen h2{ font-family:'Anton'; color:var(--amber); margin-bottom:14px; text-transform:uppercase;}
+.pin-screen input{ text-align:center; font-size:22px; letter-spacing:6px; margin-bottom:12px; }
+.pin-error{ color: var(--ember); font-size:13px; margin-top:8px; min-height:16px; }
+.conn-error{ position:fixed; top:10px; left:50%; transform:translateX(-50%); background:#C1442D; color:#fff; padding:8px 16px; border-radius:6px; font-size:13px; display:none; z-index:999; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="conn-error" id="connError">Não foi possível conectar ao servidor local.</div>
+
+<script>
+(function(){
+  // ============================================================
+  // Para trocar a imagem de fundo: coloque o arquivo (JPG ou PNG)
+  // dentro da pasta "public/images" e escreva o nome dele aqui.
+  // Deixe em branco ("") para não usar nenhuma imagem de fundo.
+  // A query string abaixo força a TV a buscar a imagem atualizada.
+  // ============================================================
+  const BACKGROUND_IMAGE = `/images/fundo.jpg?v=${Date.now()}`;
+
+  const DEFAULT_PIN = "1234";
+  let mode = 'display';
+  const app = document.getElementById('app');
+  const connError = document.getElementById('connError');
+
+  function cId(){ return 'c' + Math.random().toString(36).slice(2,9); }
+  function iId(){ return 'i' + Math.random().toString(36).slice(2,9); }
+
+  let data = null;
+  let pollTimer = null;
+
+  async function loadData(){
+    try{
+      const res = await fetch('/api/menu');
+      if(!res.ok) throw new Error('bad status');
+      data = await res.json();
+      connError.style.display = 'none';
+    }catch(e){
+      connError.style.display = 'block';
+    }
+  }
+
+  async function saveData(){
+    try{
+      const res = await fetch('/api/menu', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      data = await res.json();
+      connError.style.display = 'none';
+    }catch(e){
+      connError.style.display = 'block';
+    }
+  }
+
+  function formatTime(ts){
+    const d = new Date(ts);
+    return d.toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
+  }
+
+  /* ================= DISPLAY (TV) ================= */
+  function renderDisplay(){
+    if(!data) return;
+    const cats = data.categories.filter(c => c.items.some(i => i.available));
+    let bodyHtml = '';
+    if(cats.length === 0){
+      bodyHtml = '<div class="empty-board">O cardápio de hoje ainda está sendo preparado.</div>';
+    } else {
+      bodyHtml = cats.map((c, idx) => `
+        ${idx > 0 ? '<div class="group-divider">-</div>' : ''}
+        <div class="board-group">
+          <ul class="item-list">
+            ${c.items.filter(i=>i.available).map(i => `<li>-${escapeHtml(i.name)}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('');
+    }
+
+    const titleHtml = escapeHtml(data.title);
+    const subtitleHtml = data.subtitle ? escapeHtml(data.subtitle) : '';
+    const updatedHtml = `atualizado às ${formatTime(data.updatedAt)}`;
+    const boardBody = document.getElementById('boardBody');
+    const boardTitle = document.getElementById('boardTitle');
+    const boardSub = document.getElementById('boardSub');
+    const updatedTag = document.getElementById('updatedTag');
+
+    if(boardBody && boardTitle && boardSub && updatedTag){
+      boardTitle.innerHTML = titleHtml;
+      boardSub.innerHTML = subtitleHtml;
+      boardSub.style.display = subtitleHtml ? '' : 'none';
+      boardBody.innerHTML = bodyHtml;
+      updatedTag.textContent = updatedHtml;
+      return;
+    }
+
+    app.innerHTML = `
+      ${BACKGROUND_IMAGE ? `<img class="bg-image" src="${escapeAttr(BACKGROUND_IMAGE)}" alt="" /><div class="bg-overlay"></div>` : ''}
+      <div class="content-layer">
+      <div class="smoke-layer">
+        <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,150 C100,100 150,180 250,140 C350,100 400,170 500,130 C600,90 650,160 800,120" stroke="#E3A02F" stroke-width="2" fill="none" opacity="0.15"/>
+          <path d="M0,180 C120,140 180,200 280,170 C380,140 430,190 540,160 C640,130 690,180 800,150" stroke="#C1442D" stroke-width="2" fill="none" opacity="0.12"/>
+        </svg>
+      </div>
+      <div class="board-header">
+        <div class="board-title" id="boardTitle">${titleHtml}</div>
+        <div class="board-sub" id="boardSub" style="display:${subtitleHtml ? '' : 'none'}">${subtitleHtml}</div>
+      </div>
+      <div id="zoomWrap">
+        <div class="board-body" id="boardBody">${bodyHtml}</div>
+      </div>
+      <div class="updated-tag" id="updatedTag">${updatedHtml}</div>
+      <button class="gear-link" id="gearBtn" title="Gerenciar cardápio">⚙</button>
+      <div class="zoom-controls">
+        <button class="zoom-btn" id="zoomOutBtn" title="Diminuir letras">A−</button>
+        <button class="zoom-btn" id="zoomInBtn" title="Aumentar letras">A+</button>
+      </div>
+      </div>
+    `;
+    document.getElementById('gearBtn').addEventListener('click', () => {
+      mode = 'admin';
+      unlocked = false;
+      clearInterval(pollTimer);
+      renderPinGate();
+      startAdminPolling();
+    });
+    document.getElementById('zoomInBtn').addEventListener('click', () => adjustZoom(0.15));
+    document.getElementById('zoomOutBtn').addEventListener('click', () => adjustZoom(-0.15));
+    applyZoom();
+  }
+
+  function getZoom(){
+    const saved = parseFloat(localStorage.getItem('tvZoom'));
+    return isNaN(saved) ? 1.4 : saved;
+  }
+
+  function adjustZoom(delta){
+    let z = getZoom() + delta;
+    z = Math.min(3, Math.max(0.7, z));
+    localStorage.setItem('tvZoom', z);
+    applyZoom();
+  }
+
+  function applyZoom(){
+    const wrap = document.getElementById('zoomWrap');
+    if(wrap) wrap.style.zoom = getZoom();
+  }
+
+  /* ================= ADMIN ================= */
+  let unlocked = false;
+
+  function renderPinGate(){
+    app.innerHTML = `
+      <div class="pin-screen">
+        <h2>Gerenciar cardápio</h2>
+        <input type="password" id="pinInput" maxlength="6" placeholder="Senha" inputmode="numeric" />
+        <div><button class="btn-amber" id="pinBtn" style="width:100%">Entrar</button></div>
+        <div class="pin-error" id="pinErr"></div>
+        <div style="margin-top:16px;"><button class="view-link" id="backBtn" style="border:1px solid var(--line); background:var(--panel);">Ver como cliente</button></div>
+      </div>
+    `;
+    document.getElementById('pinBtn').onclick = checkPin;
+    document.getElementById('backBtn').onclick = backToDisplay;
+    document.getElementById('pinInput').addEventListener('keydown', e => { if(e.key==='Enter') checkPin(); });
+    document.getElementById('pinInput').focus();
+  }
+
+  function backToDisplay(){
+    mode = 'display';
+    clearInterval(pollTimer);
+    renderDisplay();
+    startDisplayPolling();
+  }
+
+  function checkPin(){
+    const val = document.getElementById('pinInput').value;
+    if(val === DEFAULT_PIN){
+      unlocked = true;
+      renderAdmin();
+    } else {
+      document.getElementById('pinErr').textContent = 'Senha incorreta.';
+    }
+  }
+
+  function renderAdmin(){
+    app.innerHTML = `
+      <div class="admin-wrap">
+        <div class="admin-header">
+          <div class="admin-title">Gerenciar cardápio</div>
+          <button class="view-link" id="backBtn2" style="border:1px solid var(--line); background:var(--panel);">Ver como cliente ↗</button>
+        </div>
+
+        <div class="field-row">
+          <input type="text" id="titleInput" value="${escapeAttr(data.title)}" placeholder="Título (ex: Cardápio do Dia)" />
+        </div>
+        <div class="field-row">
+          <input type="text" id="subInput" value="${escapeAttr(data.subtitle)}" placeholder="Subtítulo, ex: Segunda-feira, 18/07" />
+        </div>
+
+        <div id="catsContainer"></div>
+
+        <div class="field-row" style="margin-top:22px;">
+          <input type="text" id="newCatInput" placeholder="Nova categoria (ex: Sobremesas)" />
+          <button class="btn-amber" id="addCatBtn">+ Categoria</button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('titleInput').addEventListener('change', e => { data.title = e.target.value; saveData(); });
+    document.getElementById('subInput').addEventListener('change', e => { data.subtitle = e.target.value; saveData(); });
+    document.getElementById('backBtn2').addEventListener('click', backToDisplay);
+    document.getElementById('addCatBtn').addEventListener('click', () => {
+      const input = document.getElementById('newCatInput');
+      const name = input.value.trim();
+      if(!name) return;
+      data.categories.push({ id: cId(), name, items: [] });
+      input.value = '';
+      saveData();
+      renderCats();
+    });
+
+    renderCats();
+  }
+
+  function renderCats(){
+    const container = document.getElementById('catsContainer');
+    container.innerHTML = data.categories.map(cat => `
+      <div class="admin-category" data-cat="${cat.id}">
+        <div class="admin-cat-head">
+          <h3>${escapeHtml(cat.name)}</h3>
+          <button class="btn-danger" data-action="delcat" data-cat="${cat.id}">Excluir categoria</button>
+        </div>
+        ${cat.items.map(item => `
+          <div class="admin-item">
+            <span>${escapeHtml(item.name)}</span>
+            <span class="sold-label ${item.available ? 'on' : ''}">${item.available ? 'Disponível' : 'Esgotado'}</span>
+            <button class="toggle ${item.available ? 'on' : ''}" data-action="toggle" data-cat="${cat.id}" data-item="${item.id}"></button>
+            <button class="btn-danger" data-action="delitem" data-cat="${cat.id}" data-item="${item.id}">✕</button>
+          </div>
+        `).join('')}
+        <div class="field-row" style="margin-top:12px;">
+          <input type="text" placeholder="Novo item" data-newitem="${cat.id}" />
+          <button class="btn-ghost" data-action="additem" data-cat="${cat.id}">+ Item</button>
+        </div>
+      </div>
+    `).join('');
+
+    container.querySelectorAll('[data-action="toggle"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = data.categories.find(c => c.id === btn.dataset.cat);
+        const item = cat.items.find(i => i.id === btn.dataset.item);
+        item.available = !item.available;
+        saveData();
+        renderCats();
+      });
+    });
+
+    container.querySelectorAll('[data-action="delitem"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = data.categories.find(c => c.id === btn.dataset.cat);
+        cat.items = cat.items.filter(i => i.id !== btn.dataset.item);
+        saveData();
+        renderCats();
+      });
+    });
+
+    container.querySelectorAll('[data-action="delcat"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if(!confirm('Excluir esta categoria e todos os itens dela?')) return;
+        data.categories = data.categories.filter(c => c.id !== btn.dataset.cat);
+        saveData();
+        renderCats();
+      });
+    });
+
+    container.querySelectorAll('[data-action="additem"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = container.querySelector(`[data-newitem="${btn.dataset.cat}"]`);
+        const name = input.value.trim();
+        if(!name) return;
+        const cat = data.categories.find(c => c.id === btn.dataset.cat);
+        cat.items.push({ id: iId(), name, available: true });
+        input.value = '';
+        saveData();
+        renderCats();
+      });
+    });
+
+    container.querySelectorAll('[data-newitem]').forEach(input => {
+      input.addEventListener('keydown', e => {
+        if(e.key === 'Enter'){
+          const catId = input.dataset.newitem;
+          container.querySelector(`[data-action="additem"][data-cat="${catId}"]`).click();
+        }
+      });
+    });
+  }
+
+  function escapeHtml(str){
+    return String(str||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  }
+  function escapeAttr(str){ return escapeHtml(str); }
+
+  function startDisplayPolling(){
+    pollTimer = setInterval(async () => {
+      await loadData();
+      if(mode === 'display') renderDisplay();
+    }, 4000);
+  }
+
+  function startAdminPolling(){
+    pollTimer = setInterval(async () => {
+      if(!unlocked || mode !== 'admin') return;
+      const before = JSON.stringify(data);
+      await loadData();
+      if(JSON.stringify(data) !== before) renderCats();
+    }, 6000);
+  }
+
+  async function init(){
+    await loadData();
+    renderDisplay();
+    startDisplayPolling();
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>

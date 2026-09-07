@@ -1,6 +1,6 @@
 {
   "title": "Cardápio do Dia",
-  "subtitle": "Segunda-Feira 07/09/2026",
+  "subtitle": "",
   "categories": [
     {
       "id": "c1",
@@ -19,12 +19,12 @@
         {
           "id": "i3",
           "name": "Feijoada",
-          "available": false
+          "available": true
         },
         {
           "id": "i4",
           "name": "Costelinha de Porco",
-          "available": false
+          "available": true
         },
         {
           "id": "i4ogg8f7",
@@ -39,7 +39,7 @@
         {
           "id": "i1diy9h6",
           "name": "Linguiça Frita",
-          "available": true
+          "available": false
         }
       ]
     },
@@ -50,7 +50,7 @@
         {
           "id": "i5",
           "name": "Abóbora Cabotiá",
-          "available": true
+          "available": false
         },
         {
           "id": "i6",
@@ -65,7 +65,7 @@
         {
           "id": "i8",
           "name": "Macarrão ao Molho Vermelho",
-          "available": false
+          "available": true
         },
         {
           "id": "i3g9w9ge",
@@ -75,5 +75,5 @@
       ]
     }
   ],
-  "updatedAt": 1788801776199
+  "updatedAt": 1788811956542
 }

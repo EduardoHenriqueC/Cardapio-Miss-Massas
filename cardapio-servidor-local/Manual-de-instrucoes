@@ -1,0 +1,83 @@
+====================================================================
+                 MANUAL DE USO - CARDÁPIO DINÂMICO
+====================================================================
+
+Este guia orienta como ligar o sistema, exibir o cardápio na TV e 
+fazer alterações no dia a dia.
+
+--------------------------------------------------------------------
+1. COMO LIGAR O SISTEMA (NO COMPUTADOR PRINCIPAL)
+--------------------------------------------------------------------
+[1] Abra a pasta do programa no computador do balcão.
+[2] Dê dois cliques no arquivo "iniciar.bat".
+[3] Uma janela preta abrirá na tela. NÃO FECHE ESSA JANELA! Ela é o 
+    servidor do cardápio funcionando.
+[4] Na janela preta, serão exibidos os endereços de acesso:
+
+    - Para colocar na computador use http://localhost:3000
+    - Para abrir na televisão ou outro dispositivo use http://192.168.100.208:3000
+
+--------------------------------------------------------------------
+2. COMO COLOCAR O CARDÁPIO NA TELA DA TV
+--------------------------------------------------------------------
+1. Abra o aplicativo de Navegador (Browser/Web) na Smart TV.
+2. Digite o endereço da rede local (exemplo: http://192.168.100.208:3000).
+3. O cardápio abrirá limpo na tela, sem opções de administração.
+
+--------------------------------------------------------------------
+3. COMO ALTERAR O CARDÁPIO NO COMPUTADOR 
+--------------------------------------------------------------------
+[1] Abra o navegador http://localhost:3000
+[2] Clique na engrenagem no canto inferior esquerdo
+[3] Digite a senha de acesso (Senha padrão: 1234) e toque em ENTRAR.
+[4] Em caso de dúvidas nas alterações, siga o passo 4.
+
+--------------------------------------------------------------------
+3.1 COMO ALTERAR O CARDÁPIO NO CELULAR
+--------------------------------------------------------------------
+[1] Conecte o celular na MESMA rede Wi-Fi da rotisseria.
+[2] Abra o navegador do celular (Chrome, Safari, etc.).
+[3] Digite o endereço do PC http://192.168.100.208:3000
+[4] Digite a senha de acesso (Senha padrão: 1234) e toque em ENTRAR.
+[5] Em caso de dúvidas nas alterações, siga o passo 4.
+
+--------------------------------------------------------------------
+4. GERENCIANDO OS PRATOS NO DIA A DIA
+--------------------------------------------------------------------
+* O PRATO ACABOU (ESGOTADO):
+  Localize o item na lista e toque no botão VERDE ao lado dele.
+  O botão mudará para cinza ("Esgotado"). Em até 4 segundos, o prato 
+  sumirá automaticamente da tela da TV.
+
+* O PRATO VOLTOU A FICAR DISPONÍVEL:
+  Toque no botão CINZA do item. Ele voltará a ficar VERDE como 
+  "Disponível" e reaparecerá na TV.
+
+* ADICIONAR NOVO PRATO:
+  Vá até o final da categoria (Carnes ou Guarnições), digite o nome 
+  do prato no campo "Novo item" e toque no botão "+ Item".
+
+* EXCLUIR UM PRATO DEFINITIVAMENTE:
+  Toque no botão vermelho com um "X" ao lado do nome do prato.
+
+* MUDAR O TÍTULO OU A DATA DO DIA:
+  No topo da página, altere o campo de subtítulo (exemplo: troque 
+  para "Segunda-Feira 07/09/2026"). A alteração salva automaticamente.
+
+
+--------------------------------------------------------------------
+5. AJUSTAR TAMANHO DAS LETRAS NA TV
+--------------------------------------------------------------------
+Se o texto na TV estiver muito pequeno ou grande:
+* Na tela da TV, utilize os botões no canto inferior direito:
+  - Clique em "A+" para AUMENTAR o tamanho do texto.
+  - Clique em "A-" para DIMINUIR o tamanho do texto.
+
+
+--------------------------------------------------------------------
+6. COMO DESLIGAR O SISTEMA NO FIM DO DIA
+--------------------------------------------------------------------
+1. No computador principal, clique na janela preta do servidor.
+2. Pressione as teclas Ctrl + C no teclado ou simplesmente feche 
+   a janela no "X" vermelho.
+====================================================================

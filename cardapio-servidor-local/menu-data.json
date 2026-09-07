@@ -1,6 +1,6 @@
 {
   "title": "Cardápio do Dia",
-  "subtitle": "",
+  "subtitle": "Segunda-Feira 07/09/2026",
   "categories": [
     {
       "id": "c1",
@@ -9,7 +9,7 @@
         {
           "id": "i1",
           "name": "Carne de Panela",
-          "available": false
+          "available": true
         },
         {
           "id": "i2",
@@ -19,11 +19,26 @@
         {
           "id": "i3",
           "name": "Feijoada",
-          "available": true
+          "available": false
         },
         {
           "id": "i4",
           "name": "Costelinha de Porco",
+          "available": false
+        },
+        {
+          "id": "i4ogg8f7",
+          "name": "Frango Frito",
+          "available": false
+        },
+        {
+          "id": "i025ajsu",
+          "name": "Peixe Frito",
+          "available": true
+        },
+        {
+          "id": "i1diy9h6",
+          "name": "Linguiça Frita",
           "available": true
         }
       ]
@@ -50,10 +65,15 @@
         {
           "id": "i8",
           "name": "Macarrão ao Molho Vermelho",
+          "available": false
+        },
+        {
+          "id": "i3g9w9ge",
+          "name": "Jiló refogado",
           "available": true
         }
       ]
     }
   ],
-  "updatedAt": 1784944247139
+  "updatedAt": 1788801776199
 }

@@ -1,5 +1,5 @@
 {
-  "title": "Cardápio do Dia",
+  "title": "    Cardápio do Dia",
   "subtitle": "",
   "categories": [
     {
@@ -14,17 +14,17 @@
         {
           "id": "i2",
           "name": "Frango ao Molho",
-          "available": true
+          "available": false
         },
         {
           "id": "i3",
           "name": "Feijoada",
-          "available": true
+          "available": false
         },
         {
           "id": "i4",
           "name": "Costelinha de Porco",
-          "available": true
+          "available": false
         },
         {
           "id": "i4ogg8f7",
@@ -34,12 +34,47 @@
         {
           "id": "i025ajsu",
           "name": "Peixe Frito",
-          "available": true
+          "available": false
         },
         {
           "id": "i1diy9h6",
           "name": "Linguiça Frita",
           "available": false
+        },
+        {
+          "id": "ipkias5s",
+          "name": "strogonoff de frango",
+          "available": false
+        },
+        {
+          "id": "ia11nedf",
+          "name": "Peixada",
+          "available": false
+        },
+        {
+          "id": "i6vpcedr",
+          "name": "Fricassê de Frango",
+          "available": false
+        },
+        {
+          "id": "i5mqkrto",
+          "name": "Salsicha ao Molho de Tomate",
+          "available": false
+        },
+        {
+          "id": "i1tynfvw",
+          "name": "Frango a Passarinho empanado frito",
+          "available": true
+        },
+        {
+          "id": "izb9kx8w",
+          "name": "lasanha de frango",
+          "available": true
+        },
+        {
+          "id": "isfh90eu",
+          "name": "linguiça toscana acebolada",
+          "available": true
         }
       ]
     },
@@ -50,30 +85,75 @@
         {
           "id": "i5",
           "name": "Abóbora Cabotiá",
-          "available": false
+          "available": true
         },
         {
           "id": "i6",
           "name": "Milho Verde Refogado",
-          "available": true
+          "available": false
         },
         {
           "id": "i7",
           "name": "Mandioca Salteada",
-          "available": true
+          "available": false
         },
         {
           "id": "i8",
           "name": "Macarrão ao Molho Vermelho",
-          "available": true
+          "available": false
         },
         {
           "id": "i3g9w9ge",
           "name": "Jiló refogado",
+          "available": false
+        },
+        {
+          "id": "ilid6zxx",
+          "name": "Abobrinha Laminada",
+          "available": false
+        },
+        {
+          "id": "ibgmmzmv",
+          "name": "Purê de Mandioquinha",
+          "available": false
+        },
+        {
+          "id": "ixgbrtdi",
+          "name": "Creme de Milho",
+          "available": false
+        },
+        {
+          "id": "isxkk97d",
+          "name": "Salada de Macarrão",
+          "available": false
+        },
+        {
+          "id": "iwahp3je",
+          "name": "Omelete de Legumes",
+          "available": false
+        },
+        {
+          "id": "i9hirrpx",
+          "name": "Macarrão com salsicha",
+          "available": true
+        },
+        {
+          "id": "invzpepv",
+          "name": "mandioquinha salsa",
+          "available": true
+        },
+        {
+          "id": "inkjsriv",
+          "name": "chuchu refogado",
+          "available": true
+        },
+        {
+          "id": "impqt3px",
+          "name": "salada de ovos",
           "available": true
         }
       ]
     }
   ],
-  "updatedAt": 1788811956542
+  "updatedAt": 1789034233677
 }

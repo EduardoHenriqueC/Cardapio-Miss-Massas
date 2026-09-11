@@ -50,8 +50,8 @@ body{
   background: rgba(10,8,6,.78);
   z-index:0;
 }
-.group-divider{ font-family:'Anton', sans-serif; font-size: clamp(32px, 5vw, 62px); color: #fff; padding: 10px 0; }
-.board-group{ margin-bottom: 8px; }
+.group-divider{ font-family:'Anton', sans-serif; font-size: clamp(32px, 5vw, 40px); color: #fff; padding: 1px 0; }
+.board-group{ margin-bottom: 1px; }
 .content-layer{ position:relative; z-index:1; }
 
 .smoke-layer{position:absolute; top:0; left:0; width:100%; height:220px; overflow:hidden; pointer-events:none; opacity:.35;}
@@ -59,10 +59,10 @@ body{
 @keyframes drift{ from{ transform: translateX(-2%) translateY(0);} to{ transform: translateX(2%) translateY(-8px);} }
 @media (prefers-reduced-motion: reduce){ .smoke-layer svg{animation:none;} }
 
-.board-header{ position:relative; text-align:center; padding: 56px 24px 22px; }
+.board-header{ position:relative; text-align:center; padding: 56px 24px 10px; }
 .board-title{
   font-family:'Anton', sans-serif;
-  font-size: clamp(56px, 9vw, 80px);
+  font-size: clamp(56px, 9vw, 70px);
   letter-spacing: 1px;
   color: #fff;
   text-transform: uppercase;
@@ -76,7 +76,7 @@ body{
 .board-group{ margin-bottom: 12px; }
 .board-group .item-list li{
   font-family:'Anton', sans-serif;
-  font-size: clamp(32px, 5vw, 50px);
+  font-size: clamp(32px, 5vw, 40px);
   color: #fff;
   text-transform: uppercase;
   padding: 2px 0;
@@ -221,7 +221,7 @@ button{
       bodyHtml = '<div class="empty-board">O cardápio de hoje ainda está sendo preparado.</div>';
     } else {
       bodyHtml = cats.map((c, idx) => `
-        ${idx > 0 ? '<div class="group-divider">-</div>' : ''}
+        ${idx > 0 ? '<div class=".group-divider">-</div>' : ''}
         <div class="board-group">
           <ul class="item-list">
             ${c.items.filter(i=>i.available).map(i => `<li>-${escapeHtml(i.name)}</li>`).join('')}

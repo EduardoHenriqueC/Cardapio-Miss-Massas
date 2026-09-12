@@ -479,6 +479,42 @@ button{
 
   init();
 })();
+
+(function() {
+  // 1. Ativa a API de persistência de tela do navegador
+  async function requestWakeLock() {
+    try {
+      if ('wakeLock' in navigator) {
+        await navigator.wakeLock.request('screen');
+      }
+    } catch (e) {}
+  }
+
+  // 2. Truque para Fire TV: cria um fluxo de mídia silencioso invisível para evitar a suspensão
+  function preventFireTVSleep() {
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1; 
+      canvas.height = 1;
+      const stream = canvas.captureStream(1);
+      const video = document.createElement('video');
+      video.srcObject = stream;
+      video.muted = true;
+      video.playsInline = true;
+      video.play().catch(() => {});
+    } catch (e) {}
+  }
+
+  requestWakeLock();
+  preventFireTVSleep();
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      requestWakeLock();
+    }
+  });
+})();
+
 </script>
 </body>
 </html>

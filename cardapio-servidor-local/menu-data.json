@@ -7,73 +7,53 @@
       "name": "Carnes",
       "items": [
         {
-          "id": "i1",
-          "name": "Carne de Panela",
+          "id": "idui60sa",
+          "name": "Costelinha",
           "available": true
         },
         {
-          "id": "i2",
-          "name": "Frango ao Molho",
-          "available": false
-        },
-        {
-          "id": "i3",
-          "name": "Feijoada",
-          "available": false
-        },
-        {
-          "id": "i4",
-          "name": "Costelinha de Porco",
-          "available": false
-        },
-        {
-          "id": "i4ogg8f7",
-          "name": "Frango Frito",
-          "available": false
-        },
-        {
-          "id": "i025ajsu",
-          "name": "Peixe Frito",
-          "available": false
-        },
-        {
-          "id": "i1diy9h6",
-          "name": "Linguiça Frita",
-          "available": false
-        },
-        {
-          "id": "ipkias5s",
-          "name": "strogonoff de frango",
-          "available": false
-        },
-        {
-          "id": "ia11nedf",
-          "name": "Peixada",
-          "available": false
-        },
-        {
-          "id": "i6vpcedr",
-          "name": "Fricassê de Frango",
-          "available": false
-        },
-        {
-          "id": "i5mqkrto",
-          "name": "Salsicha ao Molho de Tomate",
-          "available": false
-        },
-        {
-          "id": "i1tynfvw",
-          "name": "Frango a Passarinho empanado frito",
+          "id": "i1jzubak",
+          "name": "carne de panela",
           "available": true
         },
         {
-          "id": "izb9kx8w",
-          "name": "lasanha de frango",
-          "available": true
+          "id": "iwgqdjae",
+          "name": "almÔndegas",
+          "available": false
         },
         {
-          "id": "isfh90eu",
-          "name": "linguiça toscana acebolada",
+          "id": "ijtql9vm",
+          "name": "linguíça calabresa",
+          "available": false
+        },
+        {
+          "id": "irv4lxlr",
+          "name": "carne de panela com cenoura",
+          "available": false
+        },
+        {
+          "id": "i2ahjb6o",
+          "name": "frango frito",
+          "available": false
+        },
+        {
+          "id": "ii19ilyq",
+          "name": "peixe com legumes",
+          "available": false
+        },
+        {
+          "id": "iqvv6riv",
+          "name": "linguiça calabresa",
+          "available": false
+        },
+        {
+          "id": "i8zzbp2r",
+          "name": "frango ao molho",
+          "available": false
+        },
+        {
+          "id": "i5avts2r",
+          "name": "strogonoff frango",
           "available": true
         }
       ]
@@ -83,77 +63,72 @@
       "name": "Guarnições",
       "items": [
         {
-          "id": "i5",
-          "name": "Abóbora Cabotiá",
-          "available": true
-        },
-        {
-          "id": "i6",
-          "name": "Milho Verde Refogado",
+          "id": "ihdc0878",
+          "name": "abóbora cabotiá",
           "available": false
         },
         {
-          "id": "i7",
-          "name": "Mandioca Salteada",
-          "available": false
-        },
-        {
-          "id": "i8",
-          "name": "Macarrão ao Molho Vermelho",
-          "available": false
-        },
-        {
-          "id": "i3g9w9ge",
-          "name": "Jiló refogado",
-          "available": false
-        },
-        {
-          "id": "ilid6zxx",
-          "name": "Abobrinha Laminada",
-          "available": false
-        },
-        {
-          "id": "ibgmmzmv",
-          "name": "Purê de Mandioquinha",
-          "available": false
-        },
-        {
-          "id": "ixgbrtdi",
-          "name": "Creme de Milho",
-          "available": false
-        },
-        {
-          "id": "isxkk97d",
-          "name": "Salada de Macarrão",
-          "available": false
-        },
-        {
-          "id": "iwahp3je",
-          "name": "Omelete de Legumes",
-          "available": false
-        },
-        {
-          "id": "i9hirrpx",
-          "name": "Macarrão com salsicha",
-          "available": true
-        },
-        {
-          "id": "invzpepv",
-          "name": "mandioquinha salsa",
-          "available": true
-        },
-        {
-          "id": "inkjsriv",
+          "id": "iyvy6qqo",
           "name": "chuchu refogado",
           "available": true
         },
         {
-          "id": "impqt3px",
-          "name": "salada de ovos",
+          "id": "ioo60pw2",
+          "name": "espaguete ao molho vermelho",
+          "available": false
+        },
+        {
+          "id": "if0wsab7",
+          "name": "batatas salteadas",
           "available": true
+        },
+        {
+          "id": "ixhagztb",
+          "name": "milho refogado",
+          "available": false
+        },
+        {
+          "id": "ia2w94dn",
+          "name": "jiló refogado",
+          "available": false
+        },
+        {
+          "id": "iumr5m0l",
+          "name": "polenta cremosa",
+          "available": false
+        },
+        {
+          "id": "i9p6h98u",
+          "name": "farofa de abobrinha",
+          "available": false
+        },
+        {
+          "id": "i1g68n4b",
+          "name": "macarrão molho vermelho",
+          "available": false
+        },
+        {
+          "id": "iwh98urh",
+          "name": "salada de ovos",
+          "available": false
+        },
+        {
+          "id": "iscrchxm",
+          "name": "brócolis salteados",
+          "available": true
+        },
+        {
+          "id": "iguloz69",
+          "name": "purê de batatas",
+          "available": false
+        },
+        {
+          "id": "iw0x9xob",
+          "name": "macarrão molho branco",
+          "available": false
         }
       ]
     }
   ],
-  "updatedAt": 1789034233677
+  "updatedAt": 1790524302744
 }

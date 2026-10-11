@@ -7,53 +7,23 @@
       "name": "Carnes",
       "items": [
         {
-          "id": "idui60sa",
-          "name": "Costelinha",
+          "id": "ibof0ofl",
+          "name": "costelinha de porco",
           "available": true
         },
         {
-          "id": "i1jzubak",
+          "id": "i7fvwoe7",
           "name": "carne de panela",
           "available": true
         },
         {
-          "id": "iwgqdjae",
-          "name": "almÔndegas",
-          "available": false
+          "id": "im3x3kww",
+          "name": "carne moída",
+          "available": true
         },
         {
-          "id": "ijtql9vm",
-          "name": "linguíça calabresa",
-          "available": false
-        },
-        {
-          "id": "irv4lxlr",
-          "name": "carne de panela com cenoura",
-          "available": false
-        },
-        {
-          "id": "i2ahjb6o",
-          "name": "frango frito",
-          "available": false
-        },
-        {
-          "id": "ii19ilyq",
-          "name": "peixe com legumes",
-          "available": false
-        },
-        {
-          "id": "iqvv6riv",
-          "name": "linguiça calabresa",
-          "available": false
-        },
-        {
-          "id": "i8zzbp2r",
-          "name": "frango ao molho",
-          "available": false
-        },
-        {
-          "id": "i5avts2r",
-          "name": "strogonoff frango",
+          "id": "iwrw5jar",
+          "name": "strogonoff de frango",
           "available": true
         }
       ]
@@ -63,72 +33,32 @@
       "name": "Guarnições",
       "items": [
         {
-          "id": "ihdc0878",
-          "name": "abóbora cabotiá",
-          "available": false
-        },
-        {
-          "id": "iyvy6qqo",
-          "name": "chuchu refogado",
+          "id": "im2h7ixp",
+          "name": "quibebe de mandioca",
           "available": true
         },
         {
-          "id": "ioo60pw2",
-          "name": "espaguete ao molho vermelho",
-          "available": false
+          "id": "icpfr3oz",
+          "name": "salada de ovos",
+          "available": true
         },
         {
-          "id": "if0wsab7",
+          "id": "iufeoye2",
+          "name": "macarrão molho vermelho",
+          "available": true
+        },
+        {
+          "id": "iwwtb3yx",
+          "name": "macarrão molho branco",
+          "available": true
+        },
+        {
+          "id": "iw7j8txl",
           "name": "batatas salteadas",
           "available": true
-        },
-        {
-          "id": "ixhagztb",
-          "name": "milho refogado",
-          "available": false
-        },
-        {
-          "id": "ia2w94dn",
-          "name": "jiló refogado",
-          "available": false
-        },
-        {
-          "id": "iumr5m0l",
-          "name": "polenta cremosa",
-          "available": false
-        },
-        {
-          "id": "i9p6h98u",
-          "name": "farofa de abobrinha",
-          "available": false
-        },
-        {
-          "id": "i1g68n4b",
-          "name": "macarrão molho vermelho",
-          "available": false
-        },
-        {
-          "id": "iwh98urh",
-          "name": "salada de ovos",
-          "available": false
-        },
-        {
-          "id": "iscrchxm",
-          "name": "brócolis salteados",
-          "available": true
-        },
-        {
-          "id": "iguloz69",
-          "name": "purê de batatas",
-          "available": false
-        },
-        {
-          "id": "iw0x9xob",
-          "name": "macarrão molho branco",
-          "available": false
         }
       ]
     }
   ],
-  "updatedAt": 1790524302744
+  "updatedAt": 1791722654987
 }

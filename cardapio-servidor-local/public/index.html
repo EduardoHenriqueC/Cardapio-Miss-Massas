@@ -155,6 +155,14 @@ button{
 .pin-screen input{ text-align:center; font-size:22px; letter-spacing:6px; margin-bottom:12px; }
 .pin-error{ color: var(--ember); font-size:13px; margin-top:8px; min-height:16px; }
 .conn-error{ position:fixed; top:10px; left:50%; transform:translateX(-50%); background:#C1442D; color:#fff; padding:8px 16px; border-radius:6px; font-size:13px; display:none; z-index:999; }
+
+.board-group .item-list li.sold-out{
+  text-decoration: line-through;
+  text-decoration-color: var(--ember);
+  text-decoration-thickness: 3px;
+  opacity: 0.45;
+}
+
 </style>
 </head>
 <body>
@@ -215,21 +223,20 @@ button{
 
   /* ================= DISPLAY (TV) ================= */
   function renderDisplay(){
-    if(!data) return;
-    const cats = data.categories.filter(c => c.items.some(i => i.available));
-    let bodyHtml = '';
-    if(cats.length === 0){
-      bodyHtml = '<div class="empty-board">O cardápio de hoje ainda está sendo preparado.</div>';
-    } else {
-      bodyHtml = cats.map((c, idx) => `
-        ${idx > 0 ? '<div class=".group-divider">-</div>' : ''}
-        <div class="board-group">
-          <ul class="item-list">
-            ${c.items.filter(i=>i.available).map(i => `<li>-${escapeHtml(i.name)}</li>`).join('')}
-          </ul>
-        </div>
-      `).join('');
-    }
+    const cats = data.categories.filter(c => c.items && c.items.length > 0);
+  let bodyHtml = '';
+  if(cats.length === 0){
+    bodyHtml = '<div class="empty-board">O cardápio de hoje ainda está sendo preparado.</div>';
+  } else {
+  bodyHtml = cats.map((c, idx) => `
+    ${idx > 0 ? '<div class="group-divider">-</div>' : ''}
+    <div class="board-group">
+      <ul class="item-list">
+        ${c.items.map(i => `<li class="${i.available ? '' : 'sold-out'}">-${escapeHtml(i.name)}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+  }
 
     const titleHtml = escapeHtml(data.title);
     const subtitleHtml = data.subtitle ? escapeHtml(data.subtitle) : '';

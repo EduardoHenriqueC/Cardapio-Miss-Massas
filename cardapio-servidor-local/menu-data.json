@@ -1,5 +1,5 @@
 {
-  "title": "    Cardápio do Dia",
+  "title": "Cardápio do Dia",
   "subtitle": "",
   "categories": [
     {
@@ -7,43 +7,23 @@
       "name": "Carnes",
       "items": [
         {
-          "id": "idui60sa",
-          "name": "Costelinha",
+          "id": "i800glxv",
+          "name": "strogonoff de frango",
           "available": true
         },
         {
-          "id": "i1jzubak",
+          "id": "isukx14j",
           "name": "carne de panela",
           "available": true
         },
         {
-          "id": "iwgqdjae",
-          "name": "almÔndegas",
-          "available": false
+          "id": "incajkew",
+          "name": "carne moída",
+          "available": true
         },
         {
-          "id": "ijtql9vm",
-          "name": "linguíça calabresa",
-          "available": false
-        },
-        {
-          "id": "irv4lxlr",
-          "name": "carne de panela com cenoura",
-          "available": false
-        },
-        {
-          "id": "i2ahjb6o",
-          "name": "frango frito",
-          "available": false
-        },
-        {
-          "id": "ii19ilyq",
-          "name": "peixe com legumes",
-          "available": false
-        },
-        {
-          "id": "i5avts2r",
-          "name": "strogonoff frango",
+          "id": "idchqy68",
+          "name": "coxa e sobrecoxa assada",
           "available": true
         }
       ]
@@ -53,72 +33,27 @@
       "name": "Guarnições",
       "items": [
         {
-          "id": "ihdc0878",
-          "name": "abóbora cabotiá",
-          "available": false
-        },
-        {
-          "id": "iyvy6qqo",
-          "name": "chuchu refogado",
+          "id": "iagw7ylu",
+          "name": "lasanha bolonhesa",
           "available": true
         },
         {
-          "id": "ioo60pw2",
-          "name": "espaguete ao molho vermelho",
-          "available": false
-        },
-        {
-          "id": "if0wsab7",
-          "name": "batatas salteadas",
-          "available": true
-        },
-        {
-          "id": "ixhagztb",
-          "name": "milho refogado",
-          "available": false
-        },
-        {
-          "id": "ia2w94dn",
-          "name": "jiló refogado",
-          "available": false
-        },
-        {
-          "id": "iumr5m0l",
-          "name": "polenta cremosa",
-          "available": false
-        },
-        {
-          "id": "i9p6h98u",
+          "id": "ixbpolfm",
           "name": "farofa de abobrinha",
-          "available": false
-        },
-        {
-          "id": "i1g68n4b",
-          "name": "macarrão molho vermelho",
-          "available": false
-        },
-        {
-          "id": "iwh98urh",
-          "name": "salada de ovos",
-          "available": false
-        },
-        {
-          "id": "iscrchxm",
-          "name": "brócolis salteados",
           "available": true
         },
         {
-          "id": "iguloz69",
-          "name": "purê de batatas",
-          "available": false
+          "id": "iqcecv26",
+          "name": "batatas com maionese",
+          "available": true
         },
         {
-          "id": "iw0x9xob",
-          "name": "macarrão molho branco",
-          "available": false
+          "id": "isiwni36",
+          "name": "espaguete ao molho vermelho",
+          "available": true
         }
       ]
     }
   ],
-  "updatedAt": 1792327649454
+  "updatedAt": 1792329211984
 }

@@ -1,29 +1,29 @@
 {
-  "title": "    Cardápio do Dia",
-  "subtitle": "",
+  "title": "Cardápio do Dia",
+  "subtitle": "cardápio do dia 18/10/2026",
   "categories": [
     {
       "id": "c1",
       "name": "Carnes",
       "items": [
         {
-          "id": "ibof0ofl",
-          "name": "costelinha de porco",
+          "id": "ib5ffu9n",
+          "name": "strogonoff de frango",
           "available": true
         },
         {
-          "id": "i7fvwoe7",
+          "id": "i2gp4kc7",
           "name": "carne de panela",
           "available": true
         },
         {
-          "id": "im3x3kww",
+          "id": "ik63g1v4",
           "name": "carne moída",
           "available": true
         },
         {
-          "id": "iwrw5jar",
-          "name": "strogonoff de frango",
+          "id": "i1y591y0",
+          "name": "coxa e sobrecoxa assada",
           "available": true
         }
       ]
@@ -33,32 +33,27 @@
       "name": "Guarnições",
       "items": [
         {
-          "id": "im2h7ixp",
-          "name": "quibebe de mandioca",
+          "id": "iz6he7h7",
+          "name": "lasanha à bolonhesa",
           "available": true
         },
         {
-          "id": "icpfr3oz",
-          "name": "salada de ovos",
+          "id": "i9xskb3b",
+          "name": "farofa de abobrinha",
           "available": true
         },
         {
-          "id": "iufeoye2",
-          "name": "macarrão molho vermelho",
+          "id": "i2co63ls",
+          "name": "batata com maionese",
           "available": true
         },
         {
-          "id": "iwwtb3yx",
-          "name": "macarrão molho branco",
-          "available": true
-        },
-        {
-          "id": "iw7j8txl",
-          "name": "batatas salteadas",
+          "id": "id0uv4nu",
+          "name": "espaguete com molho vermelho",
           "available": true
         }
       ]
     }
   ],
-  "updatedAt": 1791722654987
+  "updatedAt": 1792322594182
 }

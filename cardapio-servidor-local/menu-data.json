@@ -42,16 +42,6 @@
           "available": false
         },
         {
-          "id": "iqvv6riv",
-          "name": "linguiça calabresa",
-          "available": false
-        },
-        {
-          "id": "i8zzbp2r",
-          "name": "frango ao molho",
-          "available": false
-        },
-        {
           "id": "i5avts2r",
           "name": "strogonoff frango",
           "available": true
@@ -130,5 +120,5 @@
       ]
     }
   ],
-  "updatedAt": 1790524302744
+  "updatedAt": 1792327649454
 }
